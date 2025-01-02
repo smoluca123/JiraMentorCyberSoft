@@ -28,7 +28,6 @@ export function useGetAllProjects({ keyword }: { keyword?: string }) {
     queryKey: getAllProjectsQueryKey(keyword),
     queryFn: getAllProjects,
     staleTime: 1000 * 60 * 5, // 5 minutes
-    placeholderData: (previousData) => previousData,
   });
 
   return query;
