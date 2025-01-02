@@ -5,26 +5,28 @@ import Login from '@/modules/auth/components/Login';
 import AuthPage from '@/modules/auth/pages/AuthPage';
 import Register from '@/modules/auth/components/Register';
 import AuthenticationRoute from '@/routes/AuthenticationRoute';
+import InvalidRoute from '@/routes/InvalidRoute';
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <AuthenticationRoute>
-                <MainLayout />
-              </AuthenticationRoute>
-            }
-          >
-            <Route index element={<Home />} />
-          </Route>
-          <Route path="/auth" element={<AuthPage />}>
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
-        </Routes>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <AuthenticationRoute>
+              <MainLayout />
+            </AuthenticationRoute>
+          }
+        >
+          <Route index element={<Home />} />
+        </Route>
+        <Route path="/auth" element={<AuthPage />}>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+        <Route path="*" element={<InvalidRoute />} />
+      </Routes>
     </BrowserRouter>
   );
 }
